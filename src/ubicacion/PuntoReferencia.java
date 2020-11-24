@@ -14,6 +14,12 @@ public class PuntoReferencia {
     private double puntaje;
     private String nombre;
 
+    public PuntoReferencia(Coordenada coord, double puntaje, String nombre) {
+        this.coord = coord;
+        this.puntaje = puntaje;
+        this.nombre = nombre;
+    }
+
     public Coordenada getCoord() {
         return coord;
     }
