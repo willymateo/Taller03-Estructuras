@@ -14,8 +14,12 @@ public class Territorio {
     private double poblacion;
     private double area;
 
-    public Territorio(String nombre, double poblacion, double area) {
+    public Territorio(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Territorio(String nombre, double poblacion, double area) {
+        this(nombre);
         this.poblacion = poblacion;
         this.area = area;
     }

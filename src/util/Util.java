@@ -5,47 +5,35 @@
  */
 package util;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import ubicacion.Ciudad;
 
 /**
  *
  * @author USER
  */
 public class Util {
-
-    public static String desplegarMenu() {
-        System.out.println("\t****Rutas turisticas****");
-        System.out.println("Menú de Opciones");
-        System.out.println("1. Ciudad1"
-                + "2. Ciudad2" // Recordar que esto no es estatico
-                + "3. Salir");
-        Scanner sc = new Scanner(System.in);
-        sc.useDelimiter("\n");
-        System.out.print("Su opción:");
-        String opcion = sc.next();
-        System.out.println("");
-        return opcion;
-    }
-
-    public static String menuCiudades() {
+    private static Scanner sc = new Scanner(System.in);
+    
+    public static int MenuCiudad(ArrayList<Ciudad> ciudades) {
         System.out.println("\t****Ciudades****");
-        System.out.println("Menú de Opciones");
-        System.out.println("1. Consultar top de ciudades"
-                + "2. Salir");
-        Scanner sc = new Scanner(System.in);
-        sc.useDelimiter("\n");
-        System.out.print("Su opción:");
-        String opcion = sc.next();
-        System.out.println("");
-        return opcion;
+        for (int i = 0; i < ciudades.size(); i++) {
+            System.out.println(i+1 +". " +ciudades.get(i));
+        }
+        System.out.println("Menú de Opciones\n");
+        return pedirOp();
     }
-    public static String cantPuntosTurist() {
+
+    public static int menuPuntosRef() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Consulta de los mejores lugares turisticos");
-        sc.useDelimiter("\n");
-        System.out.print("Que cantidad de sitios desea saber?:");
-        String cantidad = sc.next();
-        System.out.println("");
-        return cantidad;
+        System.out.println("Ingrese la cantidad de puntos turísticos que desea consultar.");
+        return pedirOp();
+    }
+    
+    public static int pedirOp(){
+        System.out.print("Su opción:\t");
+        Integer opcion = Integer.valueOf(sc.nextLine());
+        return opcion;
     }
 }

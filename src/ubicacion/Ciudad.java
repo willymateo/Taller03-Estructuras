@@ -14,6 +14,10 @@ import java.util.PriorityQueue;
 public class Ciudad extends Territorio{
     private PriorityQueue<PuntoReferencia> puntosRef;
 
+    public Ciudad(String nombre) {
+        super(nombre);
+    }
+    
     public Ciudad(PriorityQueue<PuntoReferencia> puntosRef, String nombre, double poblacion, double area) {
         super(nombre, poblacion, area);
         this.puntosRef = puntosRef;
@@ -21,6 +25,15 @@ public class Ciudad extends Territorio{
 
     public PriorityQueue<PuntoReferencia> getPuntosRef() {
         return puntosRef;
+    }
+
+    public void setPuntosRef(PriorityQueue<PuntoReferencia> puntosRef) {
+        this.puntosRef = puntosRef;
+    }
+
+    @Override
+    public String toString() {
+        return getNombre();
     }
 
 }

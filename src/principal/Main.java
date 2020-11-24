@@ -6,9 +6,11 @@
 package principal;
 
 import data.ReadRefPoint;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
+import ubicacion.Ciudad;
+import ubicacion.Pais;
 import ubicacion.PuntoReferencia;
-import util.Util;
 
 /**
  *
@@ -16,48 +18,36 @@ import util.Util;
  */
 public class Main {
 
+    private static ArrayList<Pais> paises;
+    
+    private static void datosIniciales(){
+        paises = new ArrayList<>();
+        
+        ArrayList<Ciudad> ciudades = new ArrayList<>();
+        Ciudad guayaquil = new Ciudad("Guayaquil");
+        Ciudad quito = new Ciudad("Quito");
+        ciudades.add(guayaquil);
+        ciudades.add(quito);
+
+        Pais ec = new Pais("Ecuador");
+        ec.setCiudades(ciudades);
+        
+        paises.add(ec);
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     {
-        String accion1;
-        String accion2;
-        boolean Inicio = true;  
+        datosIniciales();
+        boolean continuar = true;
         
-        
-       
-        String opcion = Util.desplegarMenu();
         PriorityQueue<PuntoReferencia> colaP = ReadRefPoint.readFile("/resources/Guayaquil");
         
-        while (Inicio){
-            switch(opcion)
-            {
-                case "1":
-                    accion1 = Util.menuCiudades();
-                    if (accion1.equals("1")){
-                      Util.cantPuntosTurist();   
-                    }
-                    if(accion1.equals("2")){
-                        opcion = Util.desplegarMenu();
-                    }
-                break;
-                
-                case "2":
-                    accion2 = Util.menuCiudades();
-                    if (accion2.equals("1")){
-                      Util.cantPuntosTurist();   
-                    }
-                    if(accion2.equals("2")){
-                        opcion = Util.desplegarMenu();
-                    }
-                break;
-                
-                default:
-                    Inicio = false;
-                break;
-            }
+        while (continuar){
+            
         }
     }
-}
+
+    
 }

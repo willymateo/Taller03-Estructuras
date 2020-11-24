@@ -15,6 +15,10 @@ public class Pais extends Territorio{
     private String idiomaOfficial; 
     private ArrayList<Ciudad> ciudades;
 
+    public Pais(String nombre) {
+        super(nombre);
+    }
+
     public Pais(String idiomaOfficial, ArrayList<Ciudad> ciudades, String nombre, double poblacion, double area) {
         super(nombre, poblacion, area);
         this.idiomaOfficial = idiomaOfficial;
@@ -27,6 +31,15 @@ public class Pais extends Territorio{
 
     public ArrayList<Ciudad> getCiudades() {
         return ciudades;
+    }
+
+    public void setCiudades(ArrayList<Ciudad> ciudades) {
+        this.ciudades = ciudades;
+    }
+
+    @Override
+    public String toString() {
+        return getNombre();
     }
 
 }
