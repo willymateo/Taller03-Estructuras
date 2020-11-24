@@ -5,6 +5,10 @@
  */
 package principal;
 
+import data.Comparador;
+import data.ReadRefPoint;
+import java.util.PriorityQueue;
+import ubicacion.PuntoReferencia;
 import util.Util;
 
 /**
@@ -25,6 +29,10 @@ public class Main {
         
        
         String opcion = Util.desplegarMenu();
+        PriorityQueue<PuntoReferencia> colaP = new PriorityQueue<>(new Comparador());
+        while(!ReadRefPoint.readFile().isEmpty()){
+            
+        }
         while (Inicio){
             switch(opcion)
             {
