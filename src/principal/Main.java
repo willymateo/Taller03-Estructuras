@@ -18,6 +18,8 @@ public class Main {
      */
     public static void main(String[] args) {
      {
+        String accion1;
+        String accion2;
         boolean Inicio = true;  
        
         String opcion = Util.desplegarMenu();
@@ -25,9 +27,23 @@ public class Main {
             switch(opcion)
             {
                 case "1":
+                    accion1 = Util.menuCiudades();
+                    if (accion1.equals("1")){
+                      Util.cantPuntosTurist();   
+                    }
+                    if(accion1.equals("2")){
+                        opcion = Util.desplegarMenu();
+                    }
                 break;
                 
                 case "2":
+                    accion2 = Util.menuCiudades();
+                    if (accion2.equals("1")){
+                      Util.cantPuntosTurist();   
+                    }
+                    if(accion2.equals("2")){
+                        opcion = Util.desplegarMenu();
+                    }
                 break;
                 
                 default:
