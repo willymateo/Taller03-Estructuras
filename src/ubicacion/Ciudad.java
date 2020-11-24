@@ -5,21 +5,21 @@
  */
 package ubicacion;
 
-import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 /**
  *
  * @author Rafael
  */
 public class Ciudad extends Territorio{
-    private ArrayList<PuntoReferencia> puntosRef;
+    private PriorityQueue<PuntoReferencia> puntosRef;
 
-    public Ciudad(ArrayList<PuntoReferencia> puntosRef, String nombre, double poblacion, double area) {
+    public Ciudad(PriorityQueue<PuntoReferencia> puntosRef, String nombre, double poblacion, double area) {
         super(nombre, poblacion, area);
         this.puntosRef = puntosRef;
     }
 
-    public ArrayList<PuntoReferencia> getPuntosRef() {
+    public PriorityQueue<PuntoReferencia> getPuntosRef() {
         return puntosRef;
     }
 
