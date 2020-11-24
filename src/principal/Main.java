@@ -21,6 +21,8 @@ public class Main {
         String accion1;
         String accion2;
         boolean Inicio = true;  
+        
+        
        
         String opcion = Util.desplegarMenu();
         while (Inicio){
