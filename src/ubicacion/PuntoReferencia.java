@@ -12,6 +12,7 @@ package ubicacion;
 public class PuntoReferencia {
     private Coordenada coord;
     private double puntaje;
+    private String nombre;
 
     public Coordenada getCoord() {
         return coord;
@@ -19,6 +20,10 @@ public class PuntoReferencia {
 
     public double getPuntaje() {
         return puntaje;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public void setPuntaje(double puntaje) {
