@@ -8,7 +8,7 @@ package data;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.PriorityQueue;
 import ubicacion.Coordenada;
 import ubicacion.PuntoReferencia;
 
@@ -17,8 +17,8 @@ import ubicacion.PuntoReferencia;
  * @author Willy Mateo
  */
 public class ReadRefPoint {
-    public static ArrayList<PuntoReferencia> readFile(String filePath){
-        ArrayList<PuntoReferencia> puntosRef = new ArrayList<>();
+    public static PriorityQueue<PuntoReferencia> readFile(String filePath){
+        PriorityQueue<PuntoReferencia> puntosRef = new PriorityQueue<>(new Comparador());;
         
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))){
             String line;
@@ -32,7 +32,7 @@ public class ReadRefPoint {
                 double puntaje = Double.parseDouble(elementos[3].strip());
                 Coordenada newCord = new Coordenada(latitud, longitud);
                 PuntoReferencia newPointRef = new PuntoReferencia(newCord, puntaje, nombre);
-                puntosRef.add(newPointRef);
+                puntosRef.offer(newPointRef);
             }
         } catch (IOException e) {
             System.out.println("Se han producido problemas al leer el archivo: \n" +filePath +"\n" +e.getMessage());
