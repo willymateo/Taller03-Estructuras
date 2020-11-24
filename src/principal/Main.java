@@ -5,9 +5,7 @@
  */
 package principal;
 
-import data.Comparador;
 import data.ReadRefPoint;
-import java.util.ArrayList;
 import java.util.PriorityQueue;
 import ubicacion.PuntoReferencia;
 import util.Util;

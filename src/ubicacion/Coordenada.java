@@ -10,12 +10,12 @@ package ubicacion;
  * @author Willy Mateo
  */
 public class Coordenada {
-    private double latitud;
     private double longitud;
+    private double latitud;
 
-    public Coordenada(double latitud, double longitud) {
-        this.latitud = latitud;
+    public Coordenada(double longitud, double latitud) {
         this.longitud = longitud;
+        this.latitud = latitud;
     }
 
     public double getLatitud() {
