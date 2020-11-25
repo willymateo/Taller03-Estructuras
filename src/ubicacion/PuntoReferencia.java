@@ -35,5 +35,10 @@ public class PuntoReferencia {
     public void setPuntaje(double puntaje) {
         this.puntaje = puntaje;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
     
 }

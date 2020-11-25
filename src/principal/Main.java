@@ -5,12 +5,14 @@
  */
 package principal;
 
+import data.Comparador;
 import data.ReadRefPoint;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import ubicacion.Ciudad;
 import ubicacion.Pais;
 import ubicacion.PuntoReferencia;
+import util.Util;
 
 /**
  *
@@ -35,19 +37,45 @@ public class Main {
         paises.add(ec);
     }
     
+    private static void cargarArchivos(){
+        for (Pais pais : paises) {
+            for (Ciudad ciudad : pais.getCiudades()) {
+                String filePath = "resources/" +ciudad +".txt";
+                PriorityQueue<PuntoReferencia> refPoints = ReadRefPoint.readFile(filePath);
+                ciudad.setPuntosRef(refPoints);
+            }
+        }
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         datosIniciales();
+        cargarArchivos();
         boolean continuar = true;
         
-        PriorityQueue<PuntoReferencia> colaP = ReadRefPoint.readFile("/resources/Guayaquil");
-        
         while (continuar){
+            ArrayList<Ciudad> ciudades = paises.get(0).getCiudades();
+            int opcion = Util.MenuCiudad(ciudades);
             
+            if (opcion >= 1 && opcion<=ciudades.size()) {
+                int cantPR = Util.menuPuntosRef();
+                Ciudad ciudadSelec = ciudades.get(opcion-1);
+                PriorityQueue<PuntoReferencia> copiaPF = new PriorityQueue<>(new Comparador());
+                
+                for (PuntoReferencia pR : ciudadSelec.getPuntosRef()) {
+                    copiaPF.offer(pR);
+                }
+                
+                for (int i = 0; i < cantPR; i++) {
+                    System.out.println(i+1 +". " +copiaPF.poll());
+                }
+            }else if (opcion == ciudades.size()+1) {
+                continuar = false;
+            }
         }
     }
 
-    
 }

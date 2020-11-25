@@ -18,10 +18,11 @@ public class Util {
     
     public static int MenuCiudad(ArrayList<Ciudad> ciudades) {
         System.out.println("\t****Ciudades****");
+        System.out.println("Menú de Opciones\n");
         for (int i = 0; i < ciudades.size(); i++) {
             System.out.println(i+1 +". " +ciudades.get(i));
         }
-        System.out.println("Menú de Opciones\n");
+        System.out.println(ciudades.size()+1 +". Salir" );
         return pedirOp();
     }
 
@@ -31,7 +32,7 @@ public class Util {
         return pedirOp();
     }
     
-    public static int pedirOp(){
+    private static int pedirOp(){
         System.out.print("Su opción:\t");
         Integer opcion = Integer.valueOf(sc.nextLine());
         return opcion;

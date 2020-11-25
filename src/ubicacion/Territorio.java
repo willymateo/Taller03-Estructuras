@@ -9,7 +9,7 @@ package ubicacion;
  *
  * @author Willy Mateo
  */
-public class Territorio {
+public class Territorio implements Comparable<Territorio>{
     private String nombre;
     private double poblacion;
     private double area;
@@ -35,6 +35,10 @@ public class Territorio {
     public double getPoblacion() {
         return poblacion;
     }
-    
+
+    @Override
+    public int compareTo(Territorio territorio2) {
+        return this.nombre.compareTo(territorio2.nombre);
+    }
     
 }
