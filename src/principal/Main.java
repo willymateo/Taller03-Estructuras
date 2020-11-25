@@ -5,10 +5,8 @@
  */
 package principal;
 
-import data.Comparador;
 import data.ReadRefPoint;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.PriorityQueue;
 import ubicacion.Ciudad;
@@ -66,7 +64,7 @@ public class Main {
             if (opcion >= 1 && opcion<=ciudades.size()) {
                 int cantPR = Util.menuPuntosRef();
                 Ciudad ciudadSelec = ciudades.get(opcion-1);
-                PriorityQueue<PuntoReferencia> copiaPF = new PriorityQueue<>(new Comparador());
+                PriorityQueue<PuntoReferencia> copiaPF = new PriorityQueue<>();
                 
                 for (PuntoReferencia pR : ciudadSelec.getPuntosRef()) {
                     copiaPF.offer(pR);

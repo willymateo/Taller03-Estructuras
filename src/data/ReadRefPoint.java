@@ -18,7 +18,7 @@ import ubicacion.PuntoReferencia;
  */
 public class ReadRefPoint {
     public static PriorityQueue<PuntoReferencia> readFile(String filePath){
-        PriorityQueue<PuntoReferencia> puntosRef = new PriorityQueue<>(new Comparador());
+        PriorityQueue<PuntoReferencia> puntosRef = new PriorityQueue<>();
         
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))){
             String line;
