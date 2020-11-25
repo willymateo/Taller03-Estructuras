@@ -43,14 +43,15 @@ public class PuntoReferencia implements Comparable<PuntoReferencia>{
 
     @Override
     public int compareTo(PuntoReferencia pr2) {
-        if(pr2.getPuntaje()>this.getPuntaje()) return 1;
-        if( pr2.getPuntaje()== this.getPuntaje()){
-            if(this.getCoord().getLongitud()> pr2.getCoord().getLongitud())return 1;
-            if(pr2.getCoord().getLongitud()==this.getCoord().getLongitud()){
-                if(pr2.getCoord().getLatitud()>this.getCoord().getLatitud()) return 1;
+        int comPunt =  Double.compare(this.puntaje, pr2.puntaje)*-1;
+        if (comPunt == 0) {
+            int comLong = Double.compare(this.coord.getLongitud(), pr2.coord.getLongitud());
+            if (comLong == 0) {
+                return Double.compare(this.coord.getLatitud(), pr2.coord.getLatitud())*-1;
             }
+            return comLong;
         }
-        return -1;
+        return comPunt;
+        
     }
-    
 }
