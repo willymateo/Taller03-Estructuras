@@ -8,6 +8,8 @@ package principal;
 import data.Comparador;
 import data.ReadRefPoint;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.PriorityQueue;
 import ubicacion.Ciudad;
 import ubicacion.Pais;
@@ -28,8 +30,8 @@ public class Main {
         ArrayList<Ciudad> ciudades = new ArrayList<>();
         Ciudad guayaquil = new Ciudad("Guayaquil");
         Ciudad quito = new Ciudad("Quito");
-        ciudades.add(guayaquil);
         ciudades.add(quito);
+        ciudades.add(guayaquil);
 
         Pais ec = new Pais("Ecuador");
         ec.setCiudades(ciudades);
@@ -44,6 +46,7 @@ public class Main {
                 PriorityQueue<PuntoReferencia> refPoints = ReadRefPoint.readFile(filePath);
                 ciudad.setPuntosRef(refPoints);
             }
+            Collections.sort(pais.getCiudades());
         }
         
     }
